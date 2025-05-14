@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Comunidad - Portal Académico</title>
+    <link rel="stylesheet" href="styles-combined.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div id="cursor-follower"></div>
+    
+    <div id="login-overlay" class="overlay">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Iniciar Sesión</h2>
+                <span class="close-login">&times;</span>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" required>
+                    <div class="input-effect"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" required>
+                    <div class="input-effect"></div>
+                </div>
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Recordarme</label>
+                    </div>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="login-button">Ingresar</button>
+                <div class="login-footer">
+                    <p>¿No tienes cuenta? <a href="#" id="register-link">Regístrate</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="/placeholder.svg?height=80&width=80" alt="Escudo Portal Académico">
+                        <div class="logo-text">
+                            <span>Portal Académico</span>
+                            <span class="subtitle">Centro de Estudios Superiores</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <form class="search-form">
+                        <input type="text" placeholder="Buscar en el sitio">
+                        <button type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#materias">Materias</a></li>
+                    <li><a href="index.html#investigacion">Investigación</a></li>
+                    <li><a href="index.html#cultura">Cultura</a></li>
+                    <li><a href="index.html#deportes">Deportes</a></li>
+                    <li><a href="comunidad-optimizada.html" class="active">Comunidad</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="#" id="login-button" class="login-nav">Iniciar Sesión</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Nuestra <span class="highlight">Comunidad</span></h1>
+                <p>Únete a nuestra comunidad educativa, participa en foros de discusión, grupos de estudio y eventos. Comparte conocimientos y experiencias con otros estudiantes y profesores.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="tab-navigation">
+        <button class="tab-button active" data-tab="foro">Foro de Discusión</button>
+        <button class="tab-button" data-tab="grupos">Grupos de Estudio</button>
+        <button class="tab-button" data-tab="faq">Preguntas Frecuentes</button>
+        <button class="tab-button" data-tab="ayuda">Centro de Ayuda</button>
+        <button class="tab-button" data-tab="soporte">Soporte Técnico</button>
+    </div>
+
+    <div class="tab-content-container">
+        <!-- Sección de Foro -->
+        <div id="foro" class="tab-content active">
+            <div class="section-header">
+                <h2>Foro de Discusión</h2>
+                <p>Participa en conversaciones académicas, comparte conocimientos y resuelve dudas con otros miembros de la comunidad.</p>
+                <div class="section-actions">
+                    <button class="btn-primary" id="new-topic-btn">Nuevo Tema</button>
+                    <div class="search-forum">
+                        <input type="text" placeholder="Buscar en el foro">
+                        <button>
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forum-categories">
+                <div class="forum-category">
+                    <h3><i class="fas fa-book"></i> Materias y Cursos</h3>
+                    <div class="forum-topics">
+                        <div class="forum-topic">
+                            <div class="topic-info">
+                                <h4><a href="#">Dificultades con problemas de cinemática en Física</a></h4>
+                                <p>Iniciado por: <a href="#">Jesús Rodríguez</a> - Hace 2 días</p>
+                            </div>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comment"></i> 8 respuestas</span>
+                                <span><i class="fas fa-eye"></i> 156 vistas</span>
+                            </div>
+                        </div>
+                        <div class="forum-topic">
+                            <div class="topic-info">
+                                <h4><a href="#">Recomendaciones para ensayo sobre ética kantiana</a></h4>
+                                <p>Iniciado por: <a href="#">Noel Martínez</a> - Hace 3 días</p>
+                            </div>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comment"></i> 10 respuestas</span>
+                                <span><i class="fas fa-eye"></i> 203 vistas</span>
+                            </div>
+                        </div>
+                        <div class="forum-topic">
+                            <div class="topic-info">
+                                <h4><a href="#">Ayuda con análisis de datos estadísticos en R</a></h4>
+                                <p>Iniciado por: <a href="#">María López</a> - Hace 5 días</p>
+                            </div>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comment"></i> 6 respuestas</span>
+                                <span><i class="fas fa-eye"></i> 142 vistas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-category">
+                    <h3><i class="fas fa-file-alt"></i> Recursos y Materiales</h3>
+                    <div class="forum-topics">
+                        <div class="forum-topic">
+                            <div class="topic-info">
+                                <h4><a href="#">Recopilación de libros de Cálculo Multivariable</a></h4>
+                                <p>Iniciado por: <a href="#">Carlos Sánchez</a> - Hace 1 semana</p>
+                            </div>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comment"></i> 12 respuestas</span>
+                                <span><i class="fas fa-eye"></i> 287 vistas</span>
+                            </div>
+                        </div>
+                        <div class="forum-topic">
+                            <div class="topic-info">
+                                <h4><a href="#">Mejores herramientas para dibujo técnico digital</a></h4>
+                                <p>Iniciado por: <a href="#">Laura Gómez</a> - Hace 10 días</p>
+                            </div>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comment"></i> 8 respuestas</span>
+                                <span><i class="fas fa-eye"></i> 195 vistas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-category">
+                    <h3><i class="fas fa-calendar-alt"></i> Eventos y Actividades</h3>
+                    <div class="forum-topics">
+                        <div class="forum-topic">
+                            <div class="topic-info">
+                                <h4><a href="#">Conferencia de Física Cuántica - Preguntas y comentarios</a></h4>
+                                <p>Iniciado por: <a href="#">Admin</a> - Hace 3 días</p>
+                            </div>
+                            <div class="topic-stats">
+                                <span><i class="fas fa-comment"></i> 15 respuestas</span>
+                                <span><i class="fas fa-eye"></i> 412 vistas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-topic-form">
+                <h3>Crear Nuevo Tema</h3>
+                <form id="new-topic-form">
+                    <div class="form-group">
+                        <label for="topic-title">Título</label>
+                        <input type="text" id="topic-title" placeholder="Escribe un título descriptivo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic-category">Categoría</label>
+                        <select id="topic-category" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="Materias y Cursos">Materias y Cursos</option>
+                            <option value="Recursos y Materiales">Recursos y Materiales</option>
+                            <option value="Eventos y Actividades">Eventos y Actividades</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="topic-content">Contenido</label>
+                        <textarea id="topic-content" rows="6" placeholder="Describe tu pregunta o tema de discusión..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Publicar Tema</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sección de Grupos de Estudio -->
+        <div id="grupos" class="tab-content">
+            <div class="section-header">
+                <h2>Grupos de Estudio</h2>
+                <p>Únete a grupos de estudio para colaborar con otros estudiantes, compartir recursos y prepararte para exámenes.</p>
+            </div>
+
+            <div class="help-categories">
+                <div class="help-category">
+                    <div class="help-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Grupo de Estudio de Física</h3>
+                    <p>Resolvemos problemas de física, preparamos exámenes y compartimos recursos.</p>
+                    <ul>
+                        <li>15 miembros</li>
+                        <li>Reuniones: Lunes y Miércoles</li>
+                        <li>Coordinador: Dr. Rodríguez</li>
+                    </ul>
+                    <button class="btn-primary">Unirse al Grupo</button>
+                </div>
+                
+                <div class="help-category">
+                    <div class="help-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Club de Filosofía</h3>
+                    <p>Espacio para el debate filosófico, análisis de textos clásicos y discusión de ideas contemporáneas.</p>
+                    <ul>
+                        <li>23 miembros</li>
+                        <li>Reuniones: Martes</li>
+                        <li>Coordinadora: Dra. Martínez</li>
+                    </ul>
+                    <button class="btn-primary">Unirse al Grupo</button>
+                </div>
+                
+                <div class="help-category">
+                    <div class="help-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Taller de Dibujo Técnico</h3>
+                    <p>Aprende técnicas avanzadas de dibujo técnico y diseño asistido por computadora con profesionales del sector.</p>
+                    <ul>
+                        <li>18 miembros</li>
+                        <li>Reuniones: Jueves</li>
+                        <li>Coordinador: Prof. López</li>
+                    </ul>
+                    <button class="btn-primary">Unirse al Grupo</button>
+                </div>
+                
+                <div class="help-category">
+                    <div class="help-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Foro de Estadística Aplicada</h3>
+                    <p>Comparte y resuelve problemas estadísticos, aprende sobre análisis de datos y visualización de información.</p>
+                    <ul>
+                        <li>32 miembros</li>
+                        <li>Foro activo 24/7</li>
+                        <li>Coordinador: Dr. García</li>
+                    </ul>
+                    <button class="btn-primary">Unirse al Grupo</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Preguntas Frecuentes -->
+        <div id="faq" class="tab-content">
+            <div class="section-header">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Encuentra respuestas a las preguntas más comunes sobre nuestra plataforma, cursos y servicios.</p>
+            </div>
+
+            <div class="faq-search">
+                <h3>¿Cómo podemos ayudarte?</h3>
+                <form class="search-form">
+                    <input type="text" placeholder="Buscar en preguntas frecuentes...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <div class="accordion-container">
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>¿Qué es Portal Académico?</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Portal Académico es una plataforma educativa diseñada para facilitar el acceso a recursos académicos, seguimiento de materias y comunicación entre estudiantes y profesores. Ofrecemos una variedad de herramientas para mejorar la experiencia de aprendizaje, incluyendo foros de discusión, grupos de estudio, recursos descargables y más.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>¿Cómo puedo registrarme en la plataforma?</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Para registrarte en Portal Académico, haz clic en el botón "Iniciar Sesión" en la esquina superior derecha de la página y selecciona "Regístrate". Completa el formulario con tu información personal y académica. Una vez enviado, recibirás un correo electrónico de confirmación para activar tu cuenta.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>¿La plataforma es gratuita?</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Sí, Portal Académico es completamente gratuito para todos los estudiantes y profesores registrados. Ofrecemos acceso a todas las funcionalidades básicas sin costo alguno. Sin embargo, algunos recursos especializados o cursos premium pueden tener un costo adicional, el cual será claramente indicado antes de acceder a ellos.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <h3>¿Cómo puedo contactar con el equipo de soporte?</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Puedes contactar con nuestro equipo de soporte de varias maneras:</p>
+                        <ul>
+                            <li>A través del formulario de contacto en la sección de "Soporte Técnico"</li>
+                            <li>Enviando un correo electrónico a soporte@portalacademico.edu</li>
+                            <li>Llamando al +52 (123) 456-7890 en horario de atención (Lunes a Viernes, 8:00 AM - 6:00 PM)</li>
+                            <li>Utilizando el chat en vivo disponible en la esquina inferior derecha de la página</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Centro de Ayuda -->
+        <div id="ayuda" class="tab-content">
+            <div class="section-header">
+                <h2>Centro de Ayuda</h2>
+                <p>Encuentra guías, tutoriales y recursos para aprovechar al máximo nuestra plataforma.</p>
+            </div>
+
+            <div class="help-categories">
+                <div class="help-category">
+                    <div class="help-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Guías de Inicio</h3>
+                    <p>Aprende a utilizar las funciones básicas de la plataforma</p>
+                    <ul>
+                        <li>Primeros pasos en Portal Académico</li>
+                        <li>Cómo navegar por el sitio</li>
+                        <li>Configuración de tu perfil</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Ver guías</a>
+                </div>
+                
+                <div class="help-category">
+                    <div class="help-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Videotutoriales</h3>
+                    <p>Videos paso a paso para todas las funcionalidades</p>
+                    <div class="video-grid">
+                        <div class="video-item">
+                            <div class="video-thumbnail">
+                                <img src="/placeholder.svg?height=120&width=200" alt="Tutorial de navegación">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <h4>Navegación por la plataforma</h4>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-thumbnail">
+                                <img src="/placeholder.svg?height=120&width=200" alt="Cómo participar en foros">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <h4>Participación en foros</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="help-category">
+                    <div class="help-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Preguntas Frecuentes</h3>
+                    <p>Respuestas a las dudas más comunes</p>
+                    <ul>
+                        <li>Problemas de acceso</li>
+                        <li>Gestión de archivos</li>
+                        <li>Participación en grupos</li>
+                        <li>Configuración de notificaciones</li>
+                    </ul>
+                    <a href="#faq" class="btn-primary">Ver FAQ</a>
+                </div>
+                
+                <div class="help-category">
+                    <div class="help-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Contacto Directo</h3>
+                    <p>Comunícate con nuestro equipo de soporte</p>
+                    <div class="contact-options">
+                        <div class="contact-option">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </div>
+                        <div class="contact-option">
+                            <i class="fas fa-phone"></i>
+                            <span>Teléfono</span>
+                        </div>
+                        <div class="contact-option">
+                            <i class="fas fa-comment"></i>
+                            <span>Chat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Soporte Técnico -->
+        <div id="soporte" class="tab-content">
+            <div class="section-header">
+                <h2>Soporte Técnico</h2>
+                <p>Resuelve problemas técnicos y recibe asistencia personalizada para cualquier inconveniente con la plataforma.</p>
+            </div>
+
+            <div class="support-options">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3>Crear Ticket de Soporte</h3>
+                    <p>Envía un ticket detallado y nuestro equipo te responderá lo antes posible.</p>
+                    <button id="open-ticket-modal" class="btn-primary">Crear Ticket</button>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <h3>Diagnóstico del Sistema</h3>
+                    <p>Ejecuta un diagnóstico para identificar posibles problemas técnicos.</p>
+                    <button id="run-diagnostics" class="btn-primary">Ejecutar Diagnóstico</button>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Base de Conocimientos</h3>
+                    <p>Consulta nuestra documentación técnica y soluciones a problemas comunes.</p>
+                    <a href="#" class="btn-primary">Ver Documentación</a>
+                </div>
+            </div>
+
+            <div id="diagnostics-area" class="diagnostics-area">
+                <h3>Diagnóstico del Sistema</h3>
+                <div class="progress-container">
+                    <div id="diagnostics-progress" class="progress-bar"></div>
+                </div>
+                <div id="diagnostics-results" class="diagnostics-results"></div>
+            </div>
+
+            <div class="system-status">
+                <h3>Estado del Sistema</h3>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span>Plataforma Principal</span>
+                        <div class="status-indicator operational">
+                            <i class="fas fa-check-circle"></i> Operativo
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <span>Foros de Discusión</span>
+                        <div class="status-indicator operational">
+                            <i class="fas fa-check-circle"></i> Operativo
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <span>Biblioteca Digital</span>
+                        <div class="status-indicator issues">
+                            <i class="fas fa-exclamation-triangle"></i> Problemas Menores
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <span>Servidor de Archivos</span>
+                        <div class="status-indicator maintenance">
+                            <i class="fas fa-tools"></i> Mantenimiento Programado
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="common-issues">
+                <h3>Problemas Comunes</h3>
+                <div class="accordion-container">
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <h4>No puedo iniciar sesión en mi cuenta</h4>
+                            <div class="accordion-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Si no puedes iniciar sesión, prueba lo siguiente:</p>
+                            <ol>
+                                <li>Verifica que estás usando el correo electrónico y contraseña correctos.</li>
+                                <li>Asegúrate de que las mayúsculas y minúsculas sean correctas.</li>
+                                <li>Limpia la caché y las cookies de tu navegador.</li>
+                                <li>Utiliza la opción "¿Olvidaste tu contraseña?" para restablecerla.</li>
+                                <li>Si el problema persiste, contacta con soporte técnico.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <h4>No puedo cargar o descargar archivos</h4>
+                            <div class="accordion-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Si tienes problemas para cargar o descargar archivos, verifica lo siguiente:</p>
+                            <ul>
+                                <li>Tu conexión a internet es estable.</li>
+                                <li>El tamaño del archivo no excede el límite de 50MB.</li>
+                                <li>El formato del archivo es compatible con la plataforma.</li>
+                                <li>Tu navegador tiene permisos para descargar archivos.</li>
+                                <li>No tienes extensiones o bloqueadores que puedan interferir.</li>
+                            </ul>
+                            <p>Si el problema persiste, intenta borrar la caché del navegador o utiliza otro navegador.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header">
+                            <h4>La plataforma se carga lentamente</h4>
+                            <div class="accordion-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Si la plataforma se carga lentamente, prueba estas soluciones:</p>
+                            <ul>
+                                <li>Verifica tu conexión a internet.</li>
+                                <li>Cierra otras pestañas o aplicaciones que consuman ancho de banda.</li>
+                                <li>Limpia la caché y las cookies de tu navegador.</li>
+                                <li>Desactiva temporalmente las extensiones del navegador.</li>
+                                <li>Prueba con otro navegador o dispositivo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ticket de soporte -->
+    <div id="ticket-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Crear Ticket de Soporte</h2>
+            <form id="support-ticket-form">
+                <div class="form-group">
+                    <label for="ticket-name">Nombre Completo</label>
+                    <input type="text" id="ticket-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="ticket-email">Correo Electrónico</label>
+                    <input type="email" id="ticket-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="ticket-type">Tipo de Problema</label>
+                    <select id="ticket-type" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="acceso">Problemas de acceso</option>
+                        <option value="archivos">Carga/descarga de archivos</option>
+                        <option value="visualizacion">Problemas de visualización</option>
+                        <option value="rendimiento">Rendimiento lento</option>
+                        <option value="error">Mensaje de error</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ticket-subject">Asunto</label>
+                    <input type="text" id="ticket-subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="ticket-description">Descripción del Problema</label>
+                    <textarea id="ticket-description" rows="6" required placeholder="Describe el problema con el mayor detalle posible. Incluye los pasos para reproducirlo, mensajes de error y cualquier otra información relevante."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Enviar Ticket</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer-unam">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Portal Académico</h3>
+                <p>Plataforma educativa para el acceso a recursos académicos y seguimiento de materias.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#materias">Materias</a></li>
+                    <li><a href="index.html#investigacion">Investigación</a></li>
+                    <li><a href="index.html#cultura">Cultura</a></li>
+                    <li><a href="index.html#deportes">Deportes</a></li>
+                    <li><a href="comunidad-optimizada.html">Comunidad</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Av. Universidad 123, Ciudad Universitaria</li>
+                    <li><i class="fas fa-phone"></i> +52 (123) 456-7890</li>
+                    <li><i class="fas fa-envelope"></i> contacto@portalacademico.edu</li>
+                    <li><i class="fas fa-clock"></i> Lunes a Viernes: 8:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Recursos</h3>
+                <ul>
+                    <li><a href="#">Biblioteca Digital</a></li>
+                    <li><a href="#">Calendario Académico</a></li>
+                    <li><a href="#">Directorio</a></li>
+                    <li><a href="#">Mapa del Campus</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Portal Académico. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-message">Mensaje de notificación</span>
+            <span class="notification-close">&times;</span>
+        </div>
+    </div>
+
+    <div id="theme-toggle" class="theme-toggle">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="currentColor"/></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z" fill="currentColor"/></svg>
+    </div>
+
+    <div id="floating-logo">
+        <img src="/placeholder.svg?height=120&width=120" alt="Logo Portal Académico">
+    </div>
+
+    <script src="script-unified.js"></script>
+</body>
+</html>

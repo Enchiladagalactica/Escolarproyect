@@ -1,0 +1,286 @@
+&lt;!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Materia - CBTIS No. 29</title>
+    <link rel="stylesheet" href="styles-combined.css">
+    <link rel="stylesheet" href="styles-additional.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="light-mode">
+    <header>
+        <div class="logo-container">
+            <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/logo-cbtis-29.png" alt="Logo CBTIS 29" class="logo">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="comunidad.html">Comunidad</a></li>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="materias.html">Materias</a></li>
+                <li><a href="#" id="login-btn">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="materia-detalle-container">
+        <section class="materia-header">
+            <h1 id="materia-titulo">Cargando materia...</h1>
+            <div class="materia-info">
+                <p id="materia-profesor">Profesor: Cargando...</p>
+                <p id="materia-horario">Horario: Cargando...</p>
+                <p id="materia-aula">Aula: Cargando...</p>
+            </div>
+        </section>
+
+        <section class="materia-content">
+            <div class="materia-descripcion">
+                <h2>Descripción de la Materia</h2>
+                <p id="materia-descripcion-texto">Cargando descripción...</p>
+            </div>
+
+            <div class="materia-temas">
+                <h2>Temas del Curso</h2>
+                <ul id="materia-temas-lista">
+                    <li>Cargando temas...</li>
+                </ul>
+            </div>
+
+            <div class="materia-recursos">
+                <h2>Recursos Educativos</h2>
+                <div id="materia-recursos-lista" class="recursos-grid">
+                    &lt;!-- Los recursos se cargarán dinámicamente -->
+                </div>
+            </div>
+
+            <div class="materia-evaluacion">
+                <h2>Sistema de Evaluación</h2>
+                <div id="materia-evaluacion-info">
+                    <p>Cargando información de evaluación...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="materia-actions">
+            <button id="inscribir-btn" class="btn-primary">Inscribirse a la Materia</button>
+            <button id="descargar-programa-btn" class="btn-secondary">Descargar Programa</button>
+            <button id="contactar-profesor-btn" class="btn-secondary">Contactar al Profesor</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CBTIS No. 29</h3>
+                <p>Educación tecnológica de calidad</p>
+                <p>Dirección: Av. Universidad s/n, Col. Centro, Ciudad, Estado</p>
+                <p>Teléfono: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                    <li><a href="materias.html">Materias</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CBTIS No. 29. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="close-notification">&times;</span>
+            <h3>Información Importante</h3>
+            <p>Si desea continuar con el proceso u obtener más información tendrá que dirigirse a las oficinas del plantel.</p>
+            <button class="btn-primary notification-btn">Entendido</button>
+        </div>
+    </div>
+
+    <script src="script-unified.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener el ID de la materia de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const materiaId = urlParams.get('id');
+            
+            if (materiaId) {
+                // Simulación de carga de datos de la materia
+                setTimeout(() => {
+                    cargarDetalleMateria(materiaId);
+                }, 500);
+            } else {
+                document.getElementById('materia-titulo').textContent = 'Materia no encontrada';
+            }
+
+            // Botones con notificación
+            document.getElementById('inscribir-btn').addEventListener('click', function() {
+                mostrarNotificacion();
+            });
+
+            document.getElementById('descargar-programa-btn').addEventListener('click', function() {
+                mostrarNotificacion();
+            });
+
+            document.getElementById('contactar-profesor-btn').addEventListener('click', function() {
+                mostrarNotificacion();
+            });
+        });
+
+        function cargarDetalleMateria(id) {
+            // Simulación de datos de la materia
+            const materias = {
+                '1': {
+                    titulo: 'Matemáticas I',
+                    profesor: 'Dr. Juan Pérez',
+                    horario: 'Lunes y Miércoles 8:00 - 10:00',
+                    aula: 'A-101',
+                    descripcion: 'Curso introductorio de matemáticas que cubre los fundamentos del álgebra, geometría y trigonometría necesarios para las carreras técnicas.',
+                    temas: [
+                        'Números reales y operaciones básicas',
+                        'Álgebra elemental',
+                        'Ecuaciones lineales y cuadráticas',
+                        'Geometría básica',
+                        'Introducción a la trigonometría'
+                    ],
+                    recursos: [
+                        { tipo: 'pdf', nombre: 'Manual del curso', url: '#' },
+                        { tipo: 'video', nombre: 'Introducción al álgebra', url: '#' },
+                        { tipo: 'presentacion', nombre: 'Geometría básica', url: '#' }
+                    ],
+                    evaluacion: 'Exámenes parciales (40%), Tareas y ejercicios (30%), Proyecto final (20%), Participación (10%)'
+                },
+                '2': {
+                    titulo: 'Física I',
+                    profesor: 'Dra. María Rodríguez',
+                    horario: 'Martes y Jueves 10:00 - 12:00',
+                    aula: 'B-203',
+                    descripcion: 'Introducción a los conceptos fundamentales de la física clásica, incluyendo mecánica, cinemática y dinámica.',
+                    temas: [
+                        'Medición y unidades',
+                        'Cinemática en una dimensión',
+                        'Vectores y movimiento en dos dimensiones',
+                        'Leyes de Newton',
+                        'Trabajo y energía',
+                        'Momento lineal'
+                    ],
+                    recursos: [
+                        { tipo: 'pdf', nombre: 'Guía de laboratorio', url: '#' },
+                        { tipo: 'video', nombre: 'Experimentos de mecánica', url: '#' },
+                        { tipo: 'simulacion', nombre: 'Simulador de movimiento', url: '#' }
+                    ],
+                    evaluacion: 'Exámenes teóricos (30%), Prácticas de laboratorio (30%), Examen final (25%), Tareas (15%)'
+                },
+                '3': {
+                    titulo: 'Programación',
+                    profesor: 'Ing. Carlos Sánchez',
+                    horario: 'Viernes 9:00 - 13:00',
+                    aula: 'Laboratorio C-105',
+                    descripcion: 'Introducción a los fundamentos de la programación utilizando lenguajes modernos y aplicados a la resolución de problemas técnicos.',
+                    temas: [
+                        'Algoritmos y lógica de programación',
+                        'Variables y tipos de datos',
+                        'Estructuras de control',
+                        'Funciones y procedimientos',
+                        'Arreglos y estructuras de datos básicas',
+                        'Introducción a la programación orientada a objetos'
+                    ],
+                    recursos: [
+                        { tipo: 'codigo', nombre: 'Ejemplos de código', url: '#' },
+                        { tipo: 'pdf', nombre: 'Manual de referencia', url: '#' },
+                        { tipo: 'proyecto', nombre: 'Proyecto guiado', url: '#' }
+                    ],
+                    evaluacion: 'Proyectos prácticos (50%), Exámenes (30%), Participación y ejercicios (20%)'
+                }
+            };
+
+            const materia = materias[id];
+            
+            if (materia) {
+                // Actualizar la información de la materia
+                document.getElementById('materia-titulo').textContent = materia.titulo;
+                document.getElementById('materia-profesor').textContent = 'Profesor: ' + materia.profesor;
+                document.getElementById('materia-horario').textContent = 'Horario: ' + materia.horario;
+                document.getElementById('materia-aula').textContent = 'Aula: ' + materia.aula;
+                document.getElementById('materia-descripcion-texto').textContent = materia.descripcion;
+                
+                // Actualizar lista de temas
+                const temasLista = document.getElementById('materia-temas-lista');
+                temasLista.innerHTML = '';
+                materia.temas.forEach(tema => {
+                    const li = document.createElement('li');
+                    li.textContent = tema;
+                    temasLista.appendChild(li);
+                });
+                
+                // Actualizar recursos
+                const recursosLista = document.getElementById('materia-recursos-lista');
+                recursosLista.innerHTML = '';
+                materia.recursos.forEach(recurso => {
+                    const recursoDiv = document.createElement('div');
+                    recursoDiv.className = 'recurso-item';
+                    
+                    let iconClass = '';
+                    switch(recurso.tipo) {
+                        case 'pdf': iconClass = 'fas fa-file-pdf'; break;
+                        case 'video': iconClass = 'fas fa-video'; break;
+                        case 'presentacion': iconClass = 'fas fa-file-powerpoint'; break;
+                        case 'codigo': iconClass = 'fas fa-code'; break;
+                        case 'simulacion': iconClass = 'fas fa-laptop-code'; break;
+                        case 'proyecto': iconClass = 'fas fa-project-diagram'; break;
+                        default: iconClass = 'fas fa-file';
+                    }
+                    
+                    recursoDiv.innerHTML = `
+                        <i class="${iconClass}"></i>
+                        <h4>${recurso.nombre}</h4>
+                        <a href="${recurso.url}" class="btn-small">Descargar</a>
+                    `;
+                    
+                    recursosLista.appendChild(recursoDiv);
+                });
+                
+                // Actualizar información de evaluación
+                document.getElementById('materia-evaluacion-info').innerHTML = `
+                    <p>${materia.evaluacion}</p>
+                `;
+            } else {
+                document.getElementById('materia-titulo').textContent = 'Materia no encontrada';
+            }
+        }
+
+        function mostrarNotificacion() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            
+            // Cerrar notificación
+            document.querySelector('.close-notification').addEventListener('click', function() {
+                notification.classList.remove('show');
+            });
+            
+            document.querySelector('.notification-btn').addEventListener('click', function() {
+                notification.classList.remove('show');
+            });
+        }
+    </script>
+</body>
+</html>

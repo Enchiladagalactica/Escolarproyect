@@ -1,0 +1,409 @@
+/* Estilos adicionales para las nuevas páginas */
+
+/* Estilos para la página de detalle de club */
+.club-detalle-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.club-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.club-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+
+.club-header h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.club-info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.club-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .club-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.club-descripcion,
+.club-actividades,
+.club-requisitos,
+.club-horarios {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.club-descripcion h2,
+.club-actividades h2,
+.club-requisitos h2,
+.club-horarios h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.club-actividades ul,
+.club-requisitos ul {
+  padding-left: 1.5rem;
+}
+
+.club-actividades li,
+.club-requisitos li {
+  margin-bottom: 0.5rem;
+}
+
+.club-horarios-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.horario-item {
+  background-color: var(--accent-color-light);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.club-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.club-galeria {
+  margin-top: 2rem;
+}
+
+.club-galeria h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.galeria-item {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 200px;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Estilos para la página de detalle de materia */
+.materia-detalle-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.materia-header {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.materia-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.materia-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.materia-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.materia-descripcion,
+.materia-temas,
+.materia-recursos,
+.materia-evaluacion {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.materia-descripcion h2,
+.materia-temas h2,
+.materia-recursos h2,
+.materia-evaluacion h2 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.materia-temas ul {
+  padding-left: 1.5rem;
+}
+
+.materia-temas li {
+  margin-bottom: 0.5rem;
+}
+
+.recursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.recurso-item {
+  background-color: var(--accent-color-light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.recurso-item:hover {
+  transform: translateY(-5px);
+}
+
+.recurso-item i {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.recurso-item h4 {
+  margin-bottom: 1rem;
+}
+
+.btn-small {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-small:hover {
+  background-color: var(--primary-color);
+}
+
+.materia-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Estilos para la tabla interactiva de materias */
+.materias-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.materias-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.materias-header h1 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.materias-filters {
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-group label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.filter-group select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.materias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.materia-card {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.materia-card:hover {
+  transform: translateY(-5px);
+}
+
+.materia-card-header {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 1rem;
+}
+
+.materia-card-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.materia-card-body {
+  padding: 1.5rem;
+}
+
+.materia-card-info {
+  margin-bottom: 1rem;
+}
+
+.materia-card-info p {
+  margin: 0.5rem 0;
+}
+
+.materia-card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Estilos para notificaciones */
+.notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.notification.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.notification-content {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close-notification {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #777;
+}
+
+.notification-content h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.notification-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.notification-btn {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.notification-btn:hover {
+  background-color: var(--secondary-color);
+}

@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Portada - Portal Académico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <style>
+        /* Estilos específicos para la portada */
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-green: #39ff14;
+            --neon-orange: #ff6600;
+            --neon-purple: #9d00ff;
+            --neon-yellow: #ffff00;
+        }
+
+        .portada-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 5% 50px;
+        }
+
+        .portada-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/placeholder.svg?height=1080&width=1920') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .portada-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .portada-info {
+            animation: fadeInUp 1s ease;
+        }
+
+        .portada-info h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .portada-info p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .portada-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portada-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .portada-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .portada-card-list {
+            list-style: none;
+        }
+
+        .portada-card-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .portada-card-list li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .portada-alumnos {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .alumno-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 1.5rem;
+            flex: 1;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .alumno-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .alumno-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            border: 3px solid white;
+        }
+
+        .alumno-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .alumno-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .alumno-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .portada-horarios {
+            margin-top: 2rem;
+        }
+
+        .horario-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            color: white;
+        }
+
+        .horario-table th, .horario-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .horario-table th {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+        }
+
+        .horario-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .comunidad-section {
+            padding: 5rem 5%;
+            background-color: var(--light-color);
+        }
+
+        .comunidad-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .comunidad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comunidad-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed);
+        }
+
+        .dark-theme .comunidad-card {
+            background-color: #242444;
+        }
+
+        .comunidad-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .comunidad-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .comunidad-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .comunidad-card:hover .comunidad-image img {
+            transform: scale(1.1);
+        }
+
+        .comunidad-content {
+            padding: 1.5rem;
+        }
+
+        .comunidad-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        .comunidad-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .comunidad-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .comunidad-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .comunidad-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.3);
+        }
+
+        /* Nuevos estilos para el horario dinámico */
+        .horario-dinamico {
+            margin-top: 3rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .horario-dinamico h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .horario-grid {
+            display: grid;
+            grid-template-columns: 100px repeat(5, 1fr);
+            gap: 5px;
+            margin-top: 1.5rem;
+        }
+
+        .horario-header, .horario-hora, .horario-celda {
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .horario-header {
+            background-color: var(--neon-purple);
+            color: white;
+            font-weight: 600;
+        }
+
+        .horario-hora {
+            background-color: var(--neon-blue);
+            color: #333;
+            font-weight: 600;
+        }
+
+        .horario-celda {
+            background-color: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .horario-celda:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .horario-celda.fisica {
+            background-color: var(--neon-pink);
+            color: white;
+        }
+
+        .horario-celda.filosofia {
+            background-color: var(--neon-green);
+            color: #333;
+        }
+
+        .horario-celda.probabilidad {
+            background-color: var(--neon-orange);
+            color: white;
+        }
+
+        .horario-celda.dibujo {
+            background-color: var(--neon-yellow);
+            color: #333;
+        }
+
+        .horario-celda.tutorias {
+            background-color: var(--neon-blue);
+            color: #333;
+        }
+
+        .horario-materia {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .horario-profesor {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .horario-aula {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Estilos para el mapa */
+        .mapa-container {
+            margin-top: 3rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .mapa-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .mapa-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            display: block;
+        }
+
+        /* Estilos para la sección de carreras */
+        .carreras-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carreras-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/placeholder.svg?height=500&width=1000') center / cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .carreras-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .carreras-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .carrera-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carrera-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            z-index: 1;
+        }
+
+        .carrera-card:nth-child(1)::before {
+            background-color: var(--neon-pink);
+        }
+
+        .carrera-card:nth-child(2)::before {
+            background-color: var(--neon-green);
+        }
+
+        .carrera-card:nth-child(3)::before {
+            background-color: var(--neon-orange);
+        }
+
+        .carrera-card:nth-child(4)::before {
+            background-color: var(--neon-blue);
+        }
+
+        .carrera-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .carrera-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .carrera-card:hover .carrera-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .carrera-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .carrera-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .carrera-materias {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .carrera-materias h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .carrera-materias ul {
+            list-style: none;
+        }
+
+        .carrera-materias li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .carrera-materias li::before {
+            content: "•";
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Estilos para la sección de materias detalladas */
+        .materias-detalle-section {
+            padding: 5rem 5%;
+            background-color: var(--light-color);
+        }
+
+        .materias-detalle-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .materias-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .materia-tab {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        .materia-tab.active, .materia-tab:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .materias-contenido {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .materia-detalle {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .materia-detalle.active {
+            display: block;
+        }
+
+        .materia-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .materia-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .materia-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .materia-titulo h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .materia-titulo p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .materia-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .materia-descripcion {
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .materia-detalles {
+            background-color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-theme .materia-detalles {
+            background-color: #242444;
+        }
+
+        .materia-detalle-item {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .materia-detalle-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .materia-detalle-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 94, 98, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+
+        .materia-detalle-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark-color);
+        }
+
+        .materia-detalle-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .materia-temas {
+            margin-top: 2rem;
+        }
+
+        .materia-temas h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .temas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tema-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .dark-theme .tema-item {
+            background-color: #242444;
+        }
+
+        .tema-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tema-item h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        .tema-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .portada-content {
+                grid-template-columns: 1fr;
+            }
+
+            .materia-info {
+                grid-template-columns: 1fr;
+            }
+
+            .horario-grid {
+                grid-template-columns: 80px repeat(5, 1fr);
+                font-size: 0.9rem;
+            }
+
+            .horario-celda {
+                min-height: 60px;
+                padding: 5px;
+            }
+
+            .horario-materia {
+                font-size: 0.8rem;
+            }
+
+            .horario-profesor, .horario-aula {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portada-alumnos {
+                flex-direction: column;
+            }
+            
+            .portada-info h1 {
+                font-size: 2.5rem;
+            }
+
+            .horario-grid {
+                grid-template-columns: 60px repeat(5, 1fr);
+                font-size: 0.8rem;
+                overflow-x: auto;
+            }
+
+            .materia-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .materia-icon {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .horario-grid {
+                grid-template-columns: 50px repeat(5, 100px);
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <div id="cursor-follower"></div>
+    
+    <div id="login-overlay" class="overlay">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Iniciar Sesión</h2>
+                <span class="close-login">&times;</span>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" required>
+                    <div class="input-effect"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" required>
+                    <div class="input-effect"></div>
+                </div>
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Recordarme</label>
+                    </div>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="login-button">Ingresar</button>
+                <div class="login-footer">
+                    <p>¿No tienes cuenta? <a href="#" id="register-link">Regístrate</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <span>Portal</span>Académico
+        </div>
+        <nav>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#materias">Materias</a></li>
+                <li><a href="index.html#trabajos">Trabajos</a></li>
+                <li><a href="comunidad-optimizada.html">Comunidad</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+                <li><a href="#" id="login-button" class="login-nav">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="portada-hero">
+        <div class="portada-overlay"></div>
+        <div class="portada-content">
+            <div class="portada-info">
+                <h1>Bienvenidos al <span class="highlight">Portal Académico</span></h1>
+                <p>Plataforma educativa para el acceso a recursos académicos y seguimiento de materias. Explora nuestro contenido y únete a nuestra comunidad de aprendizaje.</p>
+                
+                <div class="portada-card">
+                    <h3>Escuela</h3>
+                    <p>Centro Educativo de Excelencia Académica</p>
+                    <p>Formando profesionales desde 1985 con los más altos estándares de calidad educativa y compromiso con la innovación pedagógica.</p>
+                </div>
+                
+                <div class="portada-card">
+                    <h3>Dirección y Contacto</h3>
+                    <ul class="portada-card-list">
+                        <li>Av. Universidad 123, Ciudad Universitaria</li>
+                        <li>Tel: +52 (123) 456-7890</li>
+                        <li>Email: contacto@portalacademico.edu</li>
+                        <li>Horario de atención: Lunes a Viernes de 8:00 AM a 6:00 PM</li>
+                    </ul>
+                </div>
+
+                <div class="mapa-container">
+                    <div class="mapa-overlay"></div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661095364539!2d-99.18177492526837!3d19.42400098186583!2m3!1f0!2f3!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff574e8e7acf%3A0x75a2544c9a7d6e7a!2sCiudad%20Universitaria!5e0!3m2!1ses-419!2smx!4v1715126400000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <div class="portada-details">
+                <div class="portada-card">
+                    <h3>Materias Destacadas</h3>
+                    <ul class="portada-card-list">
+                        <li>Probabilidad y Estadística</li>
+                        <li>Filosofía</li>
+                        <li>Física</li>
+                        <li>Dibujo Técnico</li>
+                        <li>Tutorías Personalizadas</li>
+                        <li>Submódulo 1: Proyectos Interdisciplinarios</li>
+                        <li>Submódulo 2: Investigación Aplicada</li>
+                    </ul>
+                </div>
+                
+                <div class="portada-alumnos">
+                    <div class="alumno-card">
+                        <div class="alumno-avatar">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Jesús">
+                        </div>
+                        <div class="alumno-info">
+                            <h4>Jesús</h4>
+                            <p>Estudiante de Física</p>
+                            <p>Especialista en análisis de datos y modelado matemático</p>
+                        </div>
+                    </div>
+                    
+                    <div class="alumno-card">
+                        <div class="alumno-avatar">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Noel">
+                        </div>
+                        <div class="alumno-info">
+                            <h4>Noel</h4>
+                            <p>Estudiante de Filosofía</p>
+                            <p>Enfocado en pensamiento crítico y análisis conceptual</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="horario-dinamico">
+                    <h3>Horario de Clases Interactivo</h3>
+                    <div class="horario-grid">
+                        <div class="horario-header">Hora</div>
+                        <div class="horario-header">Lunes</div>
+                        <div class="horario-header">Martes</div>
+                        <div class="horario-header">Miércoles</div>
+                        <div class="horario-header">Jueves</div>
+                        <div class="horario-header">Viernes</div>
+                        
+                        <div class="horario-hora">8:00 - 10:00</div>
+                        <div class="horario-celda fisica">
+                            <div class="horario-materia">Física</div>
+                            <div class="horario-profesor">Dr. Rodríguez</div>
+                            <div class="horario-aula">C-310</div>
+                        </div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda fisica">
+                            <div class="horario-materia">Física</div>
+                            <div class="horario-profesor">Dr. Rodríguez</div>
+                            <div class="horario-aula">C-310</div>
+                        </div>
+                        <div class="horario-celda"></div>
+                        
+                        <div class="horario-hora">10:00 - 12:00</div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda filosofia">
+                            <div class="horario-materia">Filosofía</div>
+                            <div class="horario-profesor">Dra. Martínez</div>
+                            <div class="horario-aula">B-205</div>
+                        </div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda filosofia">
+                            <div class="horario-materia">Filosofía</div>
+                            <div class="horario-profesor">Dra. Martínez</div>
+                            <div class="horario-aula">B-205</div>
+                        </div>
+                        <div class="horario-celda"></div>
+                        
+                        <div class="horario-hora">12:00 - 14:00</div>
+                        <div class="horario-celda probabilidad">
+                            <div class="horario-materia">Probabilidad</div>
+                            <div class="horario-profesor">Dr. García</div>
+                            <div class="horario-aula">A-101</div>
+                        </div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda probabilidad">
+                            <div class="horario-materia">Probabilidad</div>
+                            <div class="horario-profesor">Dr. García</div>
+                            <div class="horario-aula">A-101</div>
+                        </div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda"></div>
+                        
+                        <div class="horario-hora">14:00 - 16:00</div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda dibujo">
+                            <div class="horario-materia">Dibujo Técnico</div>
+                            <div class="horario-profesor">Prof. López</div>
+                            <div class="horario-aula">D-150</div>
+                        </div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda dibujo">
+                            <div class="horario-materia">Dibujo Técnico</div>
+                            <div class="horario-profesor">Prof. López</div>
+                            <div class="horario-aula">D-150</div>
+                        </div>
+                        
+                        <div class="horario-hora">16:00 - 18:00</div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda"></div>
+                        <div class="horario-celda tutorias">
+                            <div class="horario-materia">Tutorías</div>
+                            <div class="horario-profesor">Varios Profesores</div>
+                            <div class="horario-aula">Sala de Tutorías</div>
+                        </div>
+                        <div class="horario-celda"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="carreras-section">
+        <h2>Áreas de <span class="highlight">Carreras</span></h2>
+        
+        <div class="carreras-container">
+            <div class="carrera-card">
+                <div class="carrera-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+                </div>
+                <h3>Ciencias Exactas</h3>
+                <p>Desarrolla habilidades analíticas y de resolución de problemas a través del estudio de las matemáticas, física y estadística.</p>
+                <div class="carrera-materias">
+                    <h4>Materias Principales</h4>
+                    <ul>
+                        <li>Física Avanzada</li>
+                        <li>Cálculo Multivariable</li>
+                        <li>Probabilidad y Estadística</li>
+                        <li>Álgebra Lineal</li>
+                        <li>Ecuaciones Diferenciales</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="carrera-card">
+                <div class="carrera-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                </div>
+                <h3>Humanidades</h3>
+                <p>Explora el pensamiento humano, la cultura y la sociedad a través del estudio de la filosofía, literatura e historia.</p>
+                <div class="carrera-materias">
+                    <h4>Materias Principales</h4>
+                    <ul>
+                        <li>Filosofía Contemporánea</li>
+                        <li>Literatura Universal</li>
+                        <li>Historia del Arte</li>
+                        <li>Ética y Sociedad</li>
+                        <li>Teoría del Conocimiento</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="carrera-card">
+                <div class="carrera-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path><line x1="2" y1="20" x2="2" y2="20"></line></svg>
+                </div>
+                <h3>Tecnología</h3>
+                <p>Desarrolla soluciones innovadoras a través del estudio de la informática, programación y diseño digital.</p>
+                <div class="carrera-materias">
+                    <h4>Materias Principales</h4>
+                    <ul>
+                        <li>Programación Avanzada</li>
+                        <li>Bases de Datos</li>
+                        <li>Diseño de Interfaces</li>
+                        <li>Inteligencia Artificial</li>
+                        <li>Redes y Seguridad</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="carrera-card">
+                <div class="carrera-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                </div>
+                <h3>Diseño y Arquitectura</h3>
+                <p>Crea espacios y objetos funcionales y estéticos a través del estudio del diseño, dibujo técnico y arquitectura.</p>
+                <div class="carrera-materias">
+                    <h4>Materias Principales</h4>
+                    <ul>
+                        <li>Dibujo Técnico</li>
+                        <li>Diseño Arquitectónico</li>
+                        <li>Modelado 3D</li>
+                        <li>Historia de la Arquitectura</li>
+                        <li>Materiales y Construcción</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="materias-detalle-section">
+        <h2>Detalle de <span class="highlight">Materias</span></h2>
+        
+        <div class="materias-tabs">
+            <button class="materia-tab active" data-materia="fisica">Física</button>
+            <button class="materia-tab" data-materia="filosofia">Filosofía</button>
+            <button class="materia-tab" data-materia="probabilidad">Probabilidad</button>
+            <button class="materia-tab" data-materia="dibujo">Dibujo Técnico</button>
+            <button class="materia-tab" data-materia="tutorias">Tutorías</button>
+        </div>
+        
+        <div class="materias-contenido">
+            <div class="materia-detalle active" id="fisica">
+                <div class="materia-header">
+                    <div class="materia-icon">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Física">
+                    </div>
+                    <div class="materia-titulo">
+                        <h3>Física</h3>
+                        <p>Leyes y fenómenos del mundo físico</p>
+                    </div>
+                </div>
+                
+                <div class="materia-info">
+                    <div class="materia-descripcion">
+                        <p>La física es la ciencia natural que estudia los componentes fundamentales del universo, la energía, la materia, el espacio-tiempo y las interacciones fundamentales. A través de esta materia, los estudiantes desarrollarán una comprensión profunda de los principios que rigen el mundo físico y adquirirán habilidades para resolver problemas complejos.</p>
+                        <p>El curso abarca desde la mecánica clásica hasta conceptos de física moderna, proporcionando una base sólida para estudios avanzados en ciencias e ingeniería.</p>
+                    </div>
+                    
+                    <div class="materia-detalles">
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Nivel</h4>
+                                <p>Avanzado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Duración</h4>
+                                <p>18 semanas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Profesor</h4>
+                                <p>Dr. Rodríguez</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Requisitos</h4>
+                                <p>Cálculo Diferencial, Álgebra</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="materia-temas">
+                    <h4>Temas Principales</h4>
+                    
+                    <div class="temas-grid">
+                        <div class="tema-item">
+                            <h5>Mecánica Clásica</h5>
+                            <p>Leyes de Newton, cinemática, dinámica, trabajo y energía, conservación del momento.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Termodinámica</h5>
+                            <p>Leyes de la termodinámica, entropía, procesos termodinámicos, máquinas térmicas.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Electromagnetismo</h5>
+                            <p>Campos eléctricos y magnéticos, ley de Coulomb, ley de Ampère, ley de Faraday.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Ondas y Óptica</h5>
+                            <p>Movimiento ondulatorio, ondas sonoras, óptica geométrica, interferencia y difracción.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Física Moderna</h5>
+                            <p>Relatividad especial, física cuántica, estructura atómica, física nuclear.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Laboratorio Experimental</h5>
+                            <p>Prácticas de laboratorio para verificar y aplicar los conceptos teóricos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="materia-detalle" id="filosofia">
+                <!-- Contenido de Filosofía -->
+                <div class="materia-header">
+                    <div class="materia-icon">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Filosofía">
+                    </div>
+                    <div class="materia-titulo">
+                        <h3>Filosofía</h3>
+                        <p>Pensamiento crítico y reflexión filosófica</p>
+                    </div>
+                </div>
+                
+                <div class="materia-info">
+                    <div class="materia-descripcion">
+                        <p>La filosofía es el estudio de cuestiones fundamentales acerca de la existencia, el conocimiento, la verdad, la moral, la belleza, la mente y el lenguaje. Esta materia fomenta el pensamiento crítico y la capacidad de análisis, permitiendo a los estudiantes desarrollar una comprensión más profunda de la realidad y de sí mismos.</p>
+                        <p>A través del estudio de los grandes filósofos y corrientes filosóficas, los estudiantes aprenderán a cuestionar supuestos, formular argumentos sólidos y reflexionar sobre problemas complejos desde múltiples perspectivas.</p>
+                    </div>
+                    
+                    <div class="materia-detalles">
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Nivel</h4>
+                                <p>Avanzado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Duración</h4>
+                                <p>14 semanas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Profesor</h4>
+                                <p>Dra. Martínez</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Requisitos</h4>
+                                <p>Ninguno</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="materia-temas">
+                    <h4>Temas Principales</h4>
+                    
+                    <div class="temas-grid">
+                        <div class="tema-item">
+                            <h5>Filosofía Antigua</h5>
+                            <p>Presocráticos, Sócrates, Platón, Aristóteles y escuelas helenísticas.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Filosofía Medieval</h5>
+                            <p>San Agustín, Santo Tomás de Aquino, escolástica y filosofía islámica.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Filosofía Moderna</h5>
+                            <p>Descartes, Spinoza, Leibniz, empirismo británico, Kant y el idealismo alemán.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Filosofía Contemporánea</h5>
+                            <p>Existencialismo, fenomenología, filosofía analítica, posmodernismo.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Ética y Filosofía Moral</h5>
+                            <p>Teorías éticas, dilemas morales, ética aplicada y bioética.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Epistemología</h5>
+                            <p>Teorías del conocimiento, verdad, justificación y escepticismo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="materia-detalle" id="probabilidad">
+                <!-- Contenido de Probabilidad -->
+                <div class="materia-header">
+                    <div class="materia-icon">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Probabilidad">
+                    </div>
+                    <div class="materia-titulo">
+                        <h3>Probabilidad y Estadística</h3>
+                        <p>Análisis de datos y modelos probabilísticos</p>
+                    </div>
+                </div>
+                
+                <div class="materia-info">
+                    <div class="materia-descripcion">
+                        <p>La probabilidad y estadística es una rama de las matemáticas que se ocupa del estudio de fenómenos aleatorios y el análisis de datos. Esta materia proporciona herramientas fundamentales para la toma de decisiones basada en evidencia y el análisis cuantitativo en diversos campos.</p>
+                        <p>Los estudiantes aprenderán a recopilar, analizar e interpretar datos, así como a construir modelos probabilísticos para predecir comportamientos y tendencias. Estas habilidades son esenciales en campos como la ciencia de datos, la investigación científica, la economía y las finanzas.</p>
+                    </div>
+                    
+                    <div class="materia-detalles">
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Nivel</h4>
+                                <p>Intermedio</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Duración</h4>
+                                <p>16 semanas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Profesor</h4>
+                                <p>Dr. García</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Requisitos</h4>
+                                <p>Cálculo, Álgebra Lineal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="materia-temas">
+                    <h4>Temas Principales</h4>
+                    
+                    <div class="temas-grid">
+                        <div class="tema-item">
+                            <h5>Estadística Descriptiva</h5>
+                            <p>Medidas de tendencia central, dispersión, visualización de datos.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Probabilidad</h5>
+                            <p>Axiomas, probabilidad condicional, independencia, teorema de Bayes.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Variables Aleatorias</h5>
+                            <p>Discretas y continuas, funciones de distribución, esperanza y varianza.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Distribuciones de Probabilidad</h5>
+                            <p>Binomial, Poisson, normal, exponencial, chi-cuadrado, t-Student.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Inferencia Estadística</h5>
+                            <p>Estimación puntual, intervalos de confianza, pruebas de hipótesis.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Análisis de Regresión</h5>
+                            <p>Regresión lineal simple y múltiple, correlación, predicción.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="materia-detalle" id="dibujo">
+                <!-- Contenido de Dibujo Técnico -->
+                <div class="materia-header">
+                    <div class="materia-icon">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Dibujo Técnico">
+                    </div>
+                    <div class="materia-titulo">
+                        <h3>Dibujo Técnico</h3>
+                        <p>Representación gráfica y diseño técnico</p>
+                    </div>
+                </div>
+                
+                <div class="materia-info">
+                    <div class="materia-descripcion">
+                        <p>El dibujo técnico es un sistema de representación gráfica de objetos, utilizando normas y convenciones establecidas. Esta materia desarrolla habilidades para la representación precisa y detallada de objetos y espacios, fundamentales en campos como la ingeniería, la arquitectura y el diseño industrial.</p>
+                        <p>Los estudiantes aprenderán a crear planos, proyecciones ortogonales, perspectivas y diseños asistidos por computadora, adquiriendo competencias esenciales para la comunicación visual técnica y el desarrollo de proyectos.</p>
+                    </div>
+                    
+                    <div class="materia-detalles">
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Nivel</h4>
+                                <p>Intermedio</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Duración</h4>
+                                <p>16 semanas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Profesor</h4>
+                                <p>Prof. López</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Requisitos</h4>
+                                <p>Geometría Básica</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="materia-temas">
+                    <h4>Temas Principales</h4>
+                    
+                    <div class="temas-grid">
+                        <div class="tema-item">
+                            <h5>Normalización</h5>
+                            <p>Formatos, escalas, tipos de líneas, rotulación y acotación.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Geometría Descriptiva</h5>
+                            <p>Construcciones geométricas, tangencias, curvas técnicas.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Sistemas de Representación</h5>
+                            <p>Sistema diédrico, sistema axonométrico, perspectiva cónica.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Vistas y Cortes</h5>
+                            <p>Proyecciones ortogonales, vistas auxiliares, cortes y secciones.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Diseño Asistido por Computadora</h5>
+                            <p>Introducción a software CAD, modelado 2D y 3D.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Proyectos Aplicados</h5>
+                            <p>Desarrollo de proyectos arquitectónicos y de diseño industrial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="materia-detalle" id="tutorias">
+                <!-- Contenido de Tutorías -->
+                <div class="materia-header">
+                    <div class="materia-icon">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Tutorías">
+                    </div>
+                    <div class="materia-titulo">
+                        <h3>Tutorías</h3>
+                        <p>Apoyo académico y orientación educativa</p>
+                    </div>
+                </div>
+                
+                <div class="materia-info">
+                    <div class="materia-descripcion">
+                        <p>Las tutorías son sesiones de apoyo académico personalizadas que ayudan a los estudiantes a reforzar conocimientos, resolver dudas y desarrollar habilidades de estudio efectivas. Este programa está diseñado para mejorar el rendimiento académico y proporcionar orientación educativa integral.</p>
+                        <p>A través de las tutorías, los estudiantes reciben atención individualizada o en pequeños grupos, lo que permite abordar sus necesidades específicas y potenciar sus fortalezas académicas y personales.</p>
+                    </div>
+                    
+                    <div class="materia-detalles">
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Nivel</h4>
+                                <p>Básico</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Duración</h4>
+                                <p>12 semanas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Profesores</h4>
+                                <p>Varios Profesores</p>
+                            </div>
+                        </div>
+                        
+                        <div class="materia-detalle-item">
+                            <div class="materia-detalle-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="materia-detalle-content">
+                                <h4>Requisitos</h4>
+                                <p>Ninguno</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="materia-temas">
+                    <h4>Áreas de Apoyo</h4>
+                    
+                    <div class="temas-grid">
+                        <div class="tema-item">
+                            <h5>Técnicas de Estudio</h5>
+                            <p>Métodos de aprendizaje, organización del tiempo, preparación para exámenes.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Refuerzo Académico</h5>
+                            <p>Apoyo en materias específicas, resolución de dudas, ejercicios prácticos.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Orientación Educativa</h5>
+                            <p>Asesoramiento sobre trayectoria académica, elección de materias optativas.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Desarrollo de Habilidades</h5>
+                            <p>Comunicación, trabajo en equipo, pensamiento crítico, resolución de problemas.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Apoyo Emocional</h5>
+                            <p>Manejo del estrés académico, motivación, autoconfianza.</p>
+                        </div>
+                        
+                        <div class="tema-item">
+                            <h5>Proyectos Personales</h5>
+                            <p>Desarrollo de proyectos de investigación, portafolio académico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comunidad" class="comunidad-section">
+        <h2>Nuestra <span class="highlight">Comunidad</span></h2>
+        
+        <div class="comunidad-grid">
+            <div class="comunidad-card">
+                <div class="comunidad-image">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Grupo de Estudio">
+                </div>
+                <div class="comunidad-content">
+                    <h3>Grupo de Estudio de Física</h3>
+                    <p>Únete a nuestro grupo de estudio donde compartimos conocimientos, resolvemos problemas y preparamos exámenes juntos.</p>
+                    <div class="comunidad-meta">
+                        <span>15 miembros</span>
+                        <span>Activo desde 2023</span>
+                    </div>
+                    <a href="#" class="comunidad-btn">Unirse</a>
+                </div>
+            </div>
+            
+            <div class="comunidad-card">
+                <div class="comunidad-image">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Club de Filosofía">
+                </div>
+                <div class="comunidad-content">
+                    <h3>Club de Filosofía</h3>
+                    <p>Espacio para el debate filosófico, análisis de textos clásicos y discusión de ideas contemporáneas.</p>
+                    <div class="comunidad-meta">
+                        <span>23 miembros</span>
+                        <span>Reuniones semanales</span>
+                    </div>
+                    <a href="#" class="comunidad-btn">Unirse</a>
+                </div>
+            </div>
+            
+            <div class="comunidad-card">
+                <div class="comunidad-image">
+                    <img src="/placeholder.svg?height=300&width=400" alt="Taller de Dibujo">
+                </div>
+                <div class="comunidad-content">
+                    <h3>Taller de Dibujo Técnico</h3>
+                    <p>Aprende técnicas avanzadas de dibujo técnico y diseño asistido por computadora con profesionales del sector.</p>
+                    <div class="comunidad-meta">
+                        <span>18 miembros</span>
+                        <span>Proyectos mensuales</span>
+                    </div>
+                    <a href="#" class="comunidad-btn">Unirse</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <span>Portal</span>Académico
+                </div>
+                <p>Plataforma educativa para el acceso a recursos académicos y seguimiento de materias.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M22.162 5.656a8.384 8.384 0 0 1-2.402.658A4.196 4.196 0 0 0 21.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.21 4.21 0 0 1-1.89.072A4.185 4.185 0 0 0 7.97 16.65a8.394 8.394 0 0 1-6.191 1.732 11.83 11.83 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.496 8.496 0 0 0 2.087-2.165z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.466.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.048 1.055-.058 1.37-.058 4.04 0 2.67.01 2.986.058 4.04.045.976.207 1.505.344 1.858.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.04.058 2.67 0 2.986-.01 4.04-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.04 0-2.67-.01-2.986-.058-4.04-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 0 0-.748-1.15 3.098 3.098 0 0 0-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.055-.048-1.37-.058-4.04-.058zm0 3.063a5.135 5.135 0 1 1 0 10.27 5.135 5.135 0 0 1 0-10.27zm0 8.468a3.333 3.333 0 1 0 0-6.666 3.333 3.333 0 0 0 0 6.666zm6.538-8.469a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links-container">
+                <div class="footer-links-column">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#materias">Materias</a></li>
+                        <li><a href="index.html#trabajos">Trabajos</a></li>
+                        <li><a href="comunidad-optimizada.html">Comunidad</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Materias</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Probabilidad y Estadística</a></li>
+                        <li><a href="#">Filosofía</a></li>
+                        <li><a href="#">Física</a></li>
+                        <li><a href="#">Dibujo Técnico</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Biblioteca Digital</a></li>
+                        <li><a href="#">Tutoriales</a></li>
+                        <li><a href="#">Calendario Académico</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Portal Académico. Todos los derechos reservados.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="notification-message">Mensaje de notificación</span>
+            <span class="notification-close">&times;</span>
+        </div>
+    </div>
+
+    <div id="theme-toggle" class="theme-toggle">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" fill="currentColor"/></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z" fill="currentColor"/></svg>
+    </div>
+
+    <div id="floating-logo">
+        <img src="/placeholder.svg?height=120&width=120" alt="Logo Portal Académico">
+    </div>
+
+    <script src="script-unified.js"></script>
+    <script>
+        // Script para el horario dinámico y las pestañas de materias
+        document.addEventListener("DOMContentLoaded", function() {
+            // Funcionalidad para las pestañas de materias
+            const materiaTabs = document.querySelectorAll('.materia-tab');
+            const materiaDetalles = document.querySelectorAll('.materia-detalle');
+            
+            materiaTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remover clase active de todas las pestañas
+                    materiaTabs.forEach(t => t.classList.remove('active'));
+                    // Añadir clase active a la pestaña clickeada
+                    tab.classList.add('active');
+                    
+                    // Ocultar todos los detalles de materias
+                    materiaDetalles.forEach(detalle => {
+                        detalle.classList.remove('active');
+                    });
+                    
+                    // Mostrar el detalle correspondiente
+                    const materiaId = tab.getAttribute('data-materia');
+                    document.getElementById(materiaId).classList.add('active');
+                });
+            });
+            
+            // Funcionalidad para el horario dinámico
+            const horarioCeldas = document.querySelectorAll('.horario-celda');
+            
+            horarioCeldas.forEach(celda => {
+                celda.addEventListener('click', () => {
+                    // Mostrar información detallada de la clase
+                    if (celda.textContent.trim() !== '') {
+                        const materia = celda.querySelector('.horario-materia')?.textContent || '';
+                        const profesor = celda.querySelector('.horario-profesor')?.textContent || '';
+                        const aula = celda.querySelector('.horario-aula')?.textContent || '';
+                        
+                        if (materia) {
+                            showNotification(`Clase: ${materia} - ${profesor} - Aula: ${aula}`);
+                        }
+                    }
+                });
+                
+                // Efecto de hover avanzado
+                celda.addEventListener('mousemove', (e) => {
+                    if (celda.textContent.trim() !== '') {
+                        const rect = celda.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        // Calcular ángulo de inclinación basado en la posición del cursor
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = ((centerY - y) / centerY) * 5; // Máximo 5 grados
+                        const rotateY = ((x - centerX) / centerX) * 5; // Máximo 5 grados
+                        
+                        celda.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                        celda.style.zIndex = "10";
+                    }
+                });
+                
+                celda.addEventListener('mouseleave', () => {
+                    celda.style.transform = '';
+                    celda.style.zIndex = '';
+                });
+            });
+            
+            // Función para mostrar notificaciones
+            function showNotification(message) {
+                const notificationMessage = document.querySelector('.notification-message');
+                const notification = document.getElementById('notification');
+                
+                notificationMessage.textContent = message;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

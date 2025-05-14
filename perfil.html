@@ -1,0 +1,686 @@
+&lt;!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Alumno - CBTIS No. 29</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    &lt;!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    &lt;!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="/placeholder.svg?height=60&width=60" alt="Logo CBTIS 29">
+                        <div class="logo-text">
+                            <span>CBTIS No. 29</span>
+                            <span class="subtitle">Centro de Bachillerato Tecnológico</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <form class="search-form">
+                        <input type="text" placeholder="Buscar en el sitio">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#">Oferta Educativa</a>
+                        <div class="dropdown-content">
+                            <a href="#">Informática</a>
+                            <a href="#">Contabilidad</a>
+                            <a href="#">Electrónica</a>
+                            <a href="#">Mecánica</a>
+                        </div>
+                    </li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                    <li><a href="perfil.html" class="active">Portal Alumno</a></li>
+                    <li><a href="portada.html">Presentación</a></li>
+                    <li><a href="#" data-modal="login-modal" class="login-nav">Iniciar Sesión</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    &lt;!-- Student Profile Section -->
+    <section class="student-profile">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <div class="profile-avatar">
+                        <img src="/placeholder.svg?height=150&width=150" alt="Foto de Perfil">
+                    </div>
+                    <div class="profile-info">
+                        <h3>Carlos Mendoza</h3>
+                        <p>Técnico en Informática - 5° Semestre</p>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">9.2</div>
+                            <div class="stat-label">Promedio</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Asistencia</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">28/30</div>
+                            <div class="stat-label">Créditos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Clubes</div>
+                        </div>
+                    </div>
+                    <div class="profile-menu">
+                        <a href="#calificaciones" class="active"><i class="fas fa-chart-line"></i> Calificaciones</a>
+                        <a href="#horario"><i class="fas fa-calendar-alt"></i> Horario</a>
+                        <a href="#maestros"><i class="fas fa-chalkboard-teacher"></i> Maestros</a>
+                        <a href="#carrera"><i class="fas fa-graduation-cap"></i> Carrera</a>
+                        <a href="#" class="redirect-btn" data-action="actualizar tu información"><i class="fas fa-cog"></i> Configuración</a>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div id="calificaciones" class="profile-section">
+                        <h3>Calificaciones</h3>
+                        
+                        <div class="form-group">
+                            <label for="grade-selector">Selecciona el grado escolar:</label>
+                            <select id="grade-selector">
+                                <option value="all">Todos los semestres</option>
+                                <option value="1">1er Semestre</option>
+                                <option value="2">2do Semestre</option>
+                                <option value="3">3er Semestre</option>
+                                <option value="4">4to Semestre</option>
+                                <option value="5" selected>5to Semestre</option>
+                            </select>
+                        </div>
+                        
+                        <table class="grades-table">
+                            <thead>
+                                <tr>
+                                    <th>Materia</th>
+                                    <th>Parcial 1</th>
+                                    <th>Parcial 2</th>
+                                    <th>Parcial 3</th>
+                                    <th>Promedio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="subject-row" data-grade="5">
+                                    <td>Programación Web</td>
+                                    <td>9.5</td>
+                                    <td>9.8</td>
+                                    <td>10.0</td>
+                                    <td class="grade good">9.8</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="5">
+                                    <td>Bases de Datos</td>
+                                    <td>8.7</td>
+                                    <td>9.2</td>
+                                    <td>9.5</td>
+                                    <td class="grade good">9.1</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="5">
+                                    <td>Redes de Computadoras</td>
+                                    <td>8.5</td>
+                                    <td>8.8</td>
+                                    <td>9.0</td>
+                                    <td class="grade good">8.8</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="5">
+                                    <td>Inglés Técnico</td>
+                                    <td>9.0</td>
+                                    <td>9.2</td>
+                                    <td>9.5</td>
+                                    <td class="grade good">9.2</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="5">
+                                    <td>Probabilidad y Estadística</td>
+                                    <td>8.5</td>
+                                    <td>9.0</td>
+                                    <td>9.2</td>
+                                    <td class="grade good">8.9</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="4">
+                                    <td>Programación Orientada a Objetos</td>
+                                    <td>9.0</td>
+                                    <td>9.5</td>
+                                    <td>9.8</td>
+                                    <td class="grade good">9.4</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="4">
+                                    <td>Sistemas Operativos</td>
+                                    <td>8.5</td>
+                                    <td>9.0</td>
+                                    <td>9.2</td>
+                                    <td class="grade good">8.9</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="4">
+                                    <td>Diseño de Interfaces</td>
+                                    <td>9.5</td>
+                                    <td>9.8</td>
+                                    <td>10.0</td>
+                                    <td class="grade good">9.8</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="3">
+                                    <td>Estructura de Datos</td>
+                                    <td>8.0</td>
+                                    <td>8.5</td>
+                                    <td>9.0</td>
+                                    <td class="grade good">8.5</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="3">
+                                    <td>Matemáticas Discretas</td>
+                                    <td>7.5</td>
+                                    <td>8.0</td>
+                                    <td>8.5</td>
+                                    <td class="grade average">8.0</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="2">
+                                    <td>Programación Básica</td>
+                                    <td>9.0</td>
+                                    <td>9.5</td>
+                                    <td>9.8</td>
+                                    <td class="grade good">9.4</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="2">
+                                    <td>Matemáticas II</td>
+                                    <td>8.0</td>
+                                    <td>8.5</td>
+                                    <td>9.0</td>
+                                    <td class="grade good">8.5</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="1">
+                                    <td>Introducción a la Informática</td>
+                                    <td>9.5</td>
+                                    <td>9.8</td>
+                                    <td>10.0</td>
+                                    <td class="grade good">9.8</td>
+                                </tr>
+                                <tr class="subject-row" data-grade="1">
+                                    <td>Matemáticas I</td>
+                                    <td>8.5</td>
+                                    <td>9.0</td>
+                                    <td>9.5</td>
+                                    <td class="grade good">9.0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="horario" class="profile-section">
+                        <h3>Horario de Clases</h3>
+                        
+                        <div class="schedule-container">
+                            <div class="schedule-grid">
+                                <div class="schedule-header">Hora</div>
+                                <div class="schedule-header">Lunes</div>
+                                <div class="schedule-header">Martes</div>
+                                <div class="schedule-header">Miércoles</div>
+                                <div class="schedule-header">Jueves</div>
+                                <div class="schedule-header">Viernes</div>
+                                
+                                <div class="schedule-hour">7:00 - 8:40</div>
+                                <div class="schedule-cell informatica">
+                                    <div class="schedule-subject">Programación Web</div>
+                                    <div class="schedule-teacher">Prof. Hernández</div>
+                                    <div class="schedule-room">Lab. 102</div>
+                                </div>
+                                <div class="schedule-cell contabilidad">
+                                    <div class="schedule-subject">Inglés Técnico</div>
+                                    <div class="schedule-teacher">Prof. Sánchez</div>
+                                    <div class="schedule-room">Aula 205</div>
+                                </div>
+                                <div class="schedule-cell informatica">
+                                    <div class="schedule-subject">Programación Web</div>
+                                    <div class="schedule-teacher">Prof. Hernández</div>
+                                    <div class="schedule-room">Lab. 102</div>
+                                </div>
+                                <div class="schedule-cell mecanica">
+                                    <div class="schedule-subject">Probabilidad</div>
+                                    <div class="schedule-teacher">Prof. Gómez</div>
+                                    <div class="schedule-room">Aula 301</div>
+                                </div>
+                                <div class="schedule-cell electronica">
+                                    <div class="schedule-subject">Redes</div>
+                                    <div class="schedule-teacher">Prof. Ramírez</div>
+                                    <div class="schedule-room">Lab. 203</div>
+                                </div>
+                                
+                                <div class="schedule-hour">8:40 - 10:20</div>
+                                <div class="schedule-cell mecanica">
+                                    <div class="schedule-subject">Probabilidad</div>
+                                    <div class="schedule-teacher">Prof. Gómez</div>
+                                    <div class="schedule-room">Aula 301</div>
+                                </div>
+                                <div class="schedule-cell informatica">
+                                    <div class="schedule-subject">Bases de Datos</div>
+                                    <div class="schedule-teacher">Prof. Martínez</div>
+                                    <div class="schedule-room">Lab. 101</div>
+                                </div>
+                                <div class="schedule-cell electronica">
+                                    <div class="schedule-subject">Redes</div>
+                                    <div class="schedule-teacher">Prof. Ramírez</div>
+                                    <div class="schedule-room">Lab. 203</div>
+                                </div>
+                                <div class="schedule-cell informatica">
+                                    <div class="schedule-subject">Bases de Datos</div>
+                                    <div class="schedule-teacher">Prof. Martínez</div>
+                                    <div class="schedule-room">Lab. 101</div>
+                                </div>
+                                <div class="schedule-cell contabilidad">
+                                    <div class="schedule-subject">Inglés Técnico</div>
+                                    <div class="schedule-teacher">Prof. Sánchez</div>
+                                    <div class="schedule-room">Aula 205</div>
+                                </div>
+                                
+                                <div class="schedule-hour">10:40 - 12:20</div>
+                                <div class="schedule-cell electronica">
+                                    <div class="schedule-subject">Tutoría</div>
+                                    <div class="schedule-teacher">Prof. Díaz</div>
+                                    <div class="schedule-room">Aula 208</div>
+                                </div>
+                                <div class="schedule-cell mecanica">
+                                    <div class="schedule-subject">Educación Física</div>
+                                    <div class="schedule-teacher">Prof. López</div>
+                                    <div class="schedule-room">Cancha</div>
+                                </div>
+                                <div class="schedule-cell contabilidad">
+                                    <div class="schedule-subject">Ética</div>
+                                    <div class="schedule-teacher">Prof. Gutiérrez</div>
+                                    <div class="schedule-room">Aula 208</div>
+                                </div>
+                                <div class="schedule-cell mecanica">
+                                    <div class="schedule-subject">Educación Física</div>
+                                    <div class="schedule-teacher">Prof. López</div>
+                                    <div class="schedule-room">Cancha</div>
+                                </div>
+                                <div class="schedule-cell mecanica">
+                                    <div class="schedule-subject">Orientación</div>
+                                    <div class="schedule-teacher">Prof. Torres</div>
+                                    <div class="schedule-room">Aula 302</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="maestros" class="profile-section">
+                        <h3>Maestros y Materias</h3>
+                        
+                        <div class="teachers-list">
+                            <div class="teacher-card">
+                                <div class="teacher-avatar">
+                                    <img src="/placeholder.svg?height=80&width=80" alt
+
+Vamos a crear la página de detalle para los clubes:
+
+```html file="detalle-club.html"
+&lt;!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Club - CBTIS No. 29</title>
+    <link rel="stylesheet" href="styles-combined.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="light-mode">
+    <div class="theme-toggle">
+        <i class="fas fa-sun"></i>
+        <label class="switch">
+            <input type="checkbox" id="theme-switch">
+            <span class="slider round"></span>
+        </label>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/logo-cbtis-29.png" alt="Logo CBTIS 29" class="logo">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="portada.html">Presentación</a></li>
+                <li><a href="comunidad-optimizada.html">Comunidad</a></li>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="#" id="login-btn">Iniciar Sesión</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="club-detail-container">
+        <div class="club-header">
+            <div class="club-image">
+                <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/robotica-cbtis29.jpg" alt="Club de Robótica" id="club-image">
+            </div>
+            <div class="club-info">
+                <h1 id="club-title">Club de Robótica</h1>
+                <p class="club-description" id="club-description">El Club de Robótica del CBTIS No. 29 es un espacio donde los estudiantes pueden desarrollar habilidades en programación, electrónica y mecánica a través de proyectos prácticos. Participamos en competencias nacionales y desarrollamos soluciones tecnológicas para problemas reales.</p>
+                <div class="club-meta">
+                    <span><i class="fas fa-users"></i> <span id="club-members">32</span> miembros</span>
+                    <span><i class="fas fa-calendar"></i> <span id="club-schedule">Martes y Jueves 15:00-17:00</span></span>
+                    <span><i class="fas fa-map-marker-alt"></i> <span id="club-location">Laboratorio de Electrónica</span></span>
+                </div>
+                <button class="btn-primary join-club-btn">Unirse al Club</button>
+            </div>
+        </div>
+
+        <div class="club-content">
+            <div class="club-tabs">
+                <button class="tab-btn active" data-tab="activities">Actividades</button>
+                <button class="tab-btn" data-tab="projects">Proyectos</button>
+                <button class="tab-btn" data-tab="gallery">Galería</button>
+                <button class="tab-btn" data-tab="requirements">Requisitos</button>
+            </div>
+
+            <div class="tab-content active" id="activities">
+                <h2>Actividades Recientes</h2>
+                <div class="activity-list">
+                    <div class="activity-card">
+                        <div class="activity-date">15 Abril 2024</div>
+                        <h3>Taller de Arduino</h3>
+                        <p>Aprendimos a programar sensores y actuadores con Arduino para proyectos de domótica.</p>
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/taller-arduino.jpg" alt="Taller Arduino">
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-date">28 Marzo 2024</div>
+                        <h3>Competencia Regional de Robótica</h3>
+                        <p>Nuestro equipo obtuvo el segundo lugar en la categoría de robots seguidores de línea.</p>
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/competencia-robotica.jpg" alt="Competencia Robótica">
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-date">10 Febrero 2024</div>
+                        <h3>Visita a Empresa Tecnológica</h3>
+                        <p>Visitamos las instalaciones de una empresa local para conocer aplicaciones reales de la robótica en la industria.</p>
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/visita-empresa.jpg" alt="Visita Empresa">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="projects">
+                <h2>Proyectos Destacados</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/proyecto-brazo.jpg" alt="Brazo Robótico">
+                        <h3>Brazo Robótico Controlado por Gestos</h3>
+                        <p>Desarrollo de un brazo robótico que replica los movimientos de la mano humana mediante sensores de movimiento.</p>
+                        <span class="project-status completed">Completado</span>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/proyecto-dron.jpg" alt="Dron Autónomo">
+                        <h3>Dron Autónomo para Monitoreo Ambiental</h3>
+                        <p>Dron equipado con sensores para medir la calidad del aire y detectar contaminantes en zonas de difícil acceso.</p>
+                        <span class="project-status in-progress">En Progreso</span>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/proyecto-invernadero.jpg" alt="Invernadero Inteligente">
+                        <h3>Invernadero Inteligente</h3>
+                        <p>Sistema automatizado para el control de riego, temperatura y humedad en un invernadero escolar.</p>
+                        <span class="project-status completed">Completado</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="gallery">
+                <h2>Galería de Imágenes</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/galeria-robotica-1.jpg" alt="Imagen 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/galeria-robotica-2.jpg" alt="Imagen 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/galeria-robotica-3.jpg" alt="Imagen 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/galeria-robotica-4.jpg" alt="Imagen 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/galeria-robotica-5.jpg" alt="Imagen 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/galeria-robotica-6.jpg" alt="Imagen 6">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="requirements">
+                <h2>Requisitos para Unirse</h2>
+                <div class="requirements-container">
+                    <ul class="requirements-list">
+                        <li><i class="fas fa-check-circle"></i> Ser estudiante activo del CBTIS No. 29</li>
+                        <li><i class="fas fa-check-circle"></i> Tener interés en la robótica, programación o electrónica</li>
+                        <li><i class="fas fa-check-circle"></i> Compromiso de asistencia a las sesiones semanales</li>
+                        <li><i class="fas fa-check-circle"></i> Mantener un promedio mínimo de 8.0</li>
+                        <li><i class="fas fa-check-circle"></i> Disposición para trabajar en equipo</li>
+                    </ul>
+                    <div class="application-process">
+                        <h3>Proceso de Inscripción</h3>
+                        <ol>
+                            <li>Completar el formulario de solicitud (disponible en oficinas)</li>
+                            <li>Entrevista con el coordinador del club</li>
+                            <li>Periodo de prueba de dos semanas</li>
+                            <li>Confirmación de aceptación</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-clubs">
+            <h2>Otros Clubes que te Podrían Interesar</h2>
+            <div class="clubs-carousel">
+                <div class="club-card">
+                    <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/club-programacion.jpg" alt="Club de Programación">
+                    <h3>Club de Programación</h3>
+                    <p>Aprende lenguajes de programación y desarrollo de software.</p>
+                    <button class="btn-secondary join-club-btn">Unirse</button>
+                </div>
+                <div class="club-card">
+                    <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/club-electronica.jpg" alt="Club de Electrónica">
+                    <h3>Club de Electrónica</h3>
+                    <p>Diseño y construcción de circuitos electrónicos.</p>
+                    <button class="btn-secondary join-club-btn">Unirse</button>
+                </div>
+                <div class="club-card">
+                    <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/club-drones.jpg" alt="Club de Drones">
+                    <h3>Club de Drones</h3>
+                    <p>Construcción y pilotaje de drones para diversas aplicaciones.</p>
+                    <button class="btn-secondary join-club-btn">Unirse</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CBTIS No. 29</h3>
+                <p>Centro de Bachillerato Tecnológico Industrial y de Servicios No. 29</p>
+                <p>Formando técnicos profesionales desde 1968</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Universidad 1200, Col. Xoco, Alcaldía Benito Juárez, Ciudad de México</p>
+                <p><i class="fas fa-phone"></i> (55) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contacto@cbtis29.edu.mx</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="portada.html">Presentación</a></li>
+                    <li><a href="comunidad-optimizada.html">Comunidad</a></li>
+                    <li><a href="perfil.html">Mi Perfil</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CBTIS No. 29 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="fas fa-info-circle"></i>
+            <p>Si desea continuar con el proceso u obtener más información tendrá que dirigirse a las oficinas del plantel.</p>
+            <button id="notification-close"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <script src="script-unified.js"></script>
+    <script>
+        // Código específico para la página de detalle del club
+        document.addEventListener('DOMContentLoaded', function() {
+            // Manejo de pestañas
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remover clase active de todos los botones y contenidos
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Agregar clase active al botón y contenido seleccionado
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Manejo de botones de unirse
+            const joinButtons = document.querySelectorAll('.join-club-btn');
+            
+            joinButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const notification = document.getElementById('notification');
+                    notification.classList.add('show');
+                    
+                    setTimeout(() => {
+                        notification.classList.add('slide-in');
+                    }, 100);
+                });
+            });
+            
+            // Cerrar notificación
+            document.getElementById('notification-close').addEventListener('click', function() {
+                const notification = document.getElementById('notification');
+                notification.classList.remove('slide-in');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 300);
+            });
+            
+            // Galería de imágenes
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Crear modal para ver imagen en grande
+                    const modal = document.createElement('div');
+                    modal.classList.add('gallery-modal');
+                    
+                    const modalImg = document.createElement('img');
+                    modalImg.src = this.src;
+                    
+                    const closeBtn = document.createElement('span');
+                    closeBtn.classList.add('gallery-modal-close');
+                    closeBtn.innerHTML = '&times;';
+                    
+                    modal.appendChild(modalImg);
+                    modal.appendChild(closeBtn);
+                    document.body.appendChild(modal);
+                    
+                    // Mostrar modal
+                    setTimeout(() => {
+                        modal.classList.add('show');
+                    }, 10);
+                    
+                    // Cerrar modal
+                    closeBtn.addEventListener('click', function() {
+                        modal.classList.remove('show');
+                        setTimeout(() => {
+                            document.body.removeChild(modal);
+                        }, 300);
+                    });
+                });
+            });
+            
+            // Carrusel de clubes relacionados
+            const carousel = document.querySelector('.clubs-carousel');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.classList.add('active');
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+            
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+            
+            carousel.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
+</html>

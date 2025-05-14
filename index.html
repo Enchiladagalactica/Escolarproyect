@@ -1,0 +1,363 @@
+&lt;!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTIS No. 29 - Centro de Bachillerato Tecnológico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    &lt;!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    &lt;!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="/placeholder.svg?height=60&width=60" alt="Logo CBTIS 29">
+                        <div class="logo-text">
+                            <span>CBTIS No. 29</span>
+                            <span class="subtitle">Centro de Bachillerato Tecnológico</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <form class="search-form">
+                        <input type="text" placeholder="Buscar en el sitio">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#">Oferta Educativa</a>
+                        <div class="dropdown-content">
+                            <a href="#">Informática</a>
+                            <a href="#">Contabilidad</a>
+                            <a href="#">Electrónica</a>
+                            <a href="#">Mecánica</a>
+                        </div>
+                    </li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                    <li><a href="perfil.html">Portal Alumno</a></li>
+                    <li><a href="portada.html">Presentación</a></li>
+                    <li><a href="#" data-modal="login-modal" class="login-nav">Iniciar Sesión</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    &lt;!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bienvenidos al CBTIS No. 29</h1>
+                <p>Formando profesionales técnicos con excelencia académica y compromiso social desde 1978.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Conoce nuestras carreras</a>
+                    <a href="#" class="btn btn-outline redirect-btn" data-action="inscribirte">Proceso de inscripción</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    &lt;!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué elegir CBTIS No. 29?</h2>
+                <p>Ofrecemos una educación integral con enfoque tecnológico y humanista.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Excelencia Académica</h3>
+                    <p>Programas educativos de calidad avalados por la SEP con profesores altamente calificados.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Formación Tecnológica</h3>
+                    <p>Laboratorios y talleres equipados con tecnología de punta para prácticas profesionales.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidad Estudiantil</h3>
+                    <p>Ambiente inclusivo con actividades deportivas, culturales y académicas para el desarrollo integral.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    &lt;!-- Careers Section -->
+    <section class="careers-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras Carreras Técnicas</h2>
+                <p>Formación profesional con salida al campo laboral o continuación de estudios superiores.</p>
+            </div>
+            <div class="careers-grid">
+                <div class="career-card animate-on-scroll">
+                    <div class="career-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Informática">
+                    </div>
+                    <div class="career-content">
+                        <h3>Técnico en Informática</h3>
+                        <p>Desarrollo de software, administración de redes y soporte técnico.</p>
+                        <div class="career-meta">
+                            <span>Duración: 3 años</span>
+                            <span>Turno: Matutino/Vespertino</span>
+                        </div>
+                        <a href="#" class="btn btn-primary redirect-btn" data-action="conocer más sobre Informática">Ver detalles</a>
+                    </div>
+                </div>
+                <div class="career-card animate-on-scroll">
+                    <div class="career-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Contabilidad">
+                    </div>
+                    <div class="career-content">
+                        <h3>Técnico en Contabilidad</h3>
+                        <p>Gestión contable, fiscal y financiera para empresas y organizaciones.</p>
+                        <div class="career-meta">
+                            <span>Duración: 3 años</span>
+                            <span>Turno: Matutino/Vespertino</span>
+                        </div>
+                        <a href="#" class="btn btn-primary redirect-btn" data-action="conocer más sobre Contabilidad">Ver detalles</a>
+                    </div>
+                </div>
+                <div class="career-card animate-on-scroll">
+                    <div class="career-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Electrónica">
+                    </div>
+                    <div class="career-content">
+                        <h3>Técnico en Electrónica</h3>
+                        <p>Diseño, instalación y mantenimiento de sistemas electrónicos.</p>
+                        <div class="career-meta">
+                            <span>Duración: 3 años</span>
+                            <span>Turno: Matutino/Vespertino</span>
+                        </div>
+                        <a href="#" class="btn btn-primary redirect-btn" data-action="conocer más sobre Electrónica">Ver detalles</a>
+                    </div>
+                </div>
+                <div class="career-card animate-on-scroll">
+                    <div class="career-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Mecánica">
+                    </div>
+                    <div class="career-content">
+                        <h3>Técnico en Mecánica Industrial</h3>
+                        <p>Diseño, fabricación y mantenimiento de sistemas mecánicos industriales.</p>
+                        <div class="career-meta">
+                            <span>Duración: 3 años</span>
+                            <span>Turno: Matutino/Vespertino</span>
+                        </div>
+                        <a href="#" class="btn btn-primary redirect-btn" data-action="conocer más sobre Mecánica Industrial">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    &lt;!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Noticias y Eventos</h2>
+                <p>Mantente informado sobre las actividades y acontecimientos más recientes de nuestra institución.</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card animate-on-scroll">
+                    <div class="news-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Ceremonia de Graduación">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">15 de julio, 2025</div>
+                        <h3>Ceremonia de Graduación Generación 2022-2025</h3>
+                        <p>Celebramos con orgullo a nuestros egresados que culminan su formación técnica profesional.</p>
+                        <a href="#" class="btn btn-primary redirect-btn" data-action="ver más detalles sobre la ceremonia">Leer más</a>
+                    </div>
+                </div>
+                <div class="news-card animate-on-scroll">
+                    <div class="news-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Concurso de Robótica">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">10 de junio, 2025</div>
+                        <h3>Primer Lugar en Concurso Nacional de Robótica</h3>
+                        <p>Nuestros estudiantes de Electrónica obtuvieron el primer lugar en el concurso nacional.</p>
+                        <a href="#" class="btn btn-primary redirect-btn" data-action="ver más detalles sobre el concurso">Leer más</a>
+                    </div>
+                </div>
+                <div class="news-card animate-on-scroll">
+                    <div class="news-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Convenio Empresarial">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">5 de mayo, 2025</div>
+                        <h3>Nuevo Convenio con Empresas del Sector Tecnológico</h3>
+                        <p>Firmamos convenio para prácticas profesionales y bolsa de trabajo para nuestros estudiantes.</p>
+                        <a href="#" class="btn btn-primary redirect-btn" data-action="conocer más sobre el convenio">Leer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    &lt;!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CBTIS No. 29</h3>
+                    <p>Centro de Bachillerato Tecnológico Industrial y de Servicios No. 29, formando profesionales técnicos desde 1978.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="portada.html">Presentación</a></li>
+                        <li><a href="comunidad.html">Comunidad</a></li>
+                        <li><a href="perfil.html">Portal Alumno</a></li>
+                        <li><a href="#" data-modal="login-modal">Iniciar Sesión</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Carreras</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Técnico en Informática</a></li>
+                        <li><a href="#">Técnico en Contabilidad</a></li>
+                        <li><a href="#">Técnico en Electrónica</a></li>
+                        <li><a href="#">Técnico en Mecánica Industrial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Universidad 1200, Col. Xoco, Alcaldía Benito Juárez, Ciudad de México</li>
+                        <li><i class="fas fa-phone"></i> (55) 1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> contacto@cbtis29.edu.mx</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CBTIS No. 29. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    &lt;!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Iniciar Sesión</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">Usuario o Correo Electrónico</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox"> Recordarme
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                </form>
+                <p style="text-align: center; margin-top: 1rem;">
+                    ¿No tienes cuenta? <a href="#" data-modal="register-modal">Regístrate</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    &lt;!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Registro</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-username">Nombre de Usuario</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Correo Electrónico</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Contraseña</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirmar Contraseña</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                </form>
+                <p style="text-align: center; margin-top: 1rem;">
+                    ¿Ya tienes cuenta? <a href="#" data-modal="login-modal">Inicia Sesión</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    &lt;!-- Notification -->
+    <div class="notification">
+        <div class="notification-content">
+            <div class="notification-icon info">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="notification-message">Mensaje de notificación</div>
+            <div class="notification-close">&times;</div>
+        </div>
+    </div>
+
+    &lt;!-- Theme Toggle -->
+    <div id="theme-toggle" class="theme-toggle">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

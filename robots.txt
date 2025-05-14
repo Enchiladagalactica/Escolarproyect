@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /logs/
+Disallow: /uploads/private/
+
+Sitemap: https://www.cbtis29.edu.mx/sitemap.xml

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materias - CBTIS No. 29</title>
+    <link rel="stylesheet" href="styles-combined.css">
+    <link rel="stylesheet" href="styles-additional.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="light-mode">
+    <header>
+        <div class="logo-container">
+            <img src="https://www.cbtis29.edu.mx/2024/wp-content/uploads/2023/12/logo-cbtis-29.png" alt="Logo CBTIS 29" class="logo">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="comunidad.html">Comunidad</a></li>
+                <li><a href="perfil.html">Mi Perfil</a></li>
+                <li><a href="materias.html" class="active">Materias</a></li>
+                <li><a href="#" id="login-btn">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="materias-container">
+        <section class="materias-header">
+            <h1>Materias por Grado Escolar</h1>
+            <p>Selecciona tu grado y especialidad para ver las materias disponibles</p>
+        </section>
+
+        <section class="materias-filters">
+            <div class="filter-group">
+                <label for="filtro-grado">Grado Escolar:</label>
+                <select id="filtro-grado">
+                    <option value="1">Primer Grado</option>
+                    <option value="2">Segundo Grado</option>
+                    <option value="3">Tercer Grado</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filtro-especialidad">Especialidad:</label>
+                <select id="filtro-especialidad">
+                    <option value="todas">Todas las especialidades</option>
+                    <option value="tronco-comun">Tronco Común</option>
+                    <option value="informatica">Informática</option>
+                    <option value="electronica">Electrónica</option>
+                    <option value="administracion">Administración</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="materias-grid" class="materias-grid">
+            <!-- Las materias se cargarán dinámicamente -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CBTIS No. 29</h3>
+                <p>Educación tecnológica de calidad</p>
+                <p>Dirección: Av. Universidad s/n, Col. Centro, Ciudad, Estado</p>
+                <p>Teléfono: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                    <li><a href="materias.html">Materias</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CBTIS No. 29. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span class="close-notification">&times;</span>
+            <h3>Información Importante</h3>
+            <p>Si desea continuar con el proceso u obtener más información tendrá que dirigirse a las oficinas del plantel.</p>
+            <button class="btn-primary notification-btn">Entendido</button>
+        </div>
+    </div>
+
+    <script src="script-unified.js"></script>
+</body>
+</html>
